@@ -9,6 +9,7 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">  #  </th>
                     </tr>
@@ -17,6 +18,7 @@
                     @foreach($recetas as $receta)
                         <tr>
                             <td>{{ $receta->nombre }}</td>
+                            <td>{{ $receta->precio }}</td>
                             <td>{{ $receta->categoria }}</td>
                             <td> 
                             <input id="{{ $receta->nombre }}" type="number" class="form-control" name="{{ $receta->nombre }}" value="0" required autofocus>

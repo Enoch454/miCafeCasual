@@ -20,7 +20,7 @@ class RecetasController extends Controller
      * @return Response
      */
     public function indexMenu(Request $request){
-        $recetas = Receta::get();
-        return view('menu.index', ['recetas' => $recetas]);
+        $recetas = Receta::orderBy('categoria', 'asc')->get();
+        return view('menu.index', ['recetas' => $recetas, 'flag' =>false, 'tempIngrediente' => null ]);
     }
 }

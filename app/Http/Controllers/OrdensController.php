@@ -70,6 +70,7 @@ class OrdensController extends Controller
     }
 
     public function index(Request $request){
+        $request->user()->authorizeRoles('admin');
         $ordenes = Orden::orderBy('estaHecha', 'asc')->get();
         return view('ordenes.index', ['ordenes' => $ordenes]);
     }
@@ -84,6 +85,7 @@ class OrdensController extends Controller
     }
 
     public function detalles(Request $request, $id){
+        $request->user()->authorizeRoles('admin');
         $orden = Orden::find($id);
         //$this->authorize('verify',$task);
         $orden->estaHecha = $request->estaHecha;

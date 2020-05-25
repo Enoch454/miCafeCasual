@@ -19,6 +19,7 @@ class IngredienteController extends Controller
      * @return Response
      */
     public function index(Request $request){
+        $request->user()->authorizeRoles('admin');
         $ingredientes = Ingrediente::get();
         return view('ingredientes.index', ['ingredientes' => $ingredientes]);
     }
@@ -30,6 +31,7 @@ class IngredienteController extends Controller
      * @return Response
      */
     public function store(Request $request){
+        $request->user()->authorizeRoles('admin');
         //dd($request);
         $this->validate($request, [
             'cantidad' => 'numeric|min:0'
@@ -86,6 +88,7 @@ class IngredienteController extends Controller
      * @return Response
      */
     public function edit(Request $request, $id){
+        $request->user()->authorizeRoles('admin');
         //dd($request->all());
         $this->validate($request, [
             'cantidad' => 'numeric|min:0'

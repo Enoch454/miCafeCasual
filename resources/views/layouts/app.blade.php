@@ -29,8 +29,9 @@
                     Mi Café Casual
                 </a>
                 <!--  Navegacion para el admin  -->
-                @if(!empty($auth))
-                    @if ($auth()->user()->hasRole('admin'))
+                @guest
+                @else
+                    @if (Auth::user()->hasRole('admin'))
                     <br>
                     <a class="navbar-light " href="{{ url('/ordenes') }}" style="margin-right: 10px;">
                         Ordenes
