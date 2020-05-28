@@ -18,7 +18,15 @@
                     @foreach($ordenes as $orden)
                         <tr>
                             <td>{{ $orden->created_at }}</td>
-                            <td>{{ $orden->user()->get()->first()->name }}</td>
+                            <!-- Acá debe haber una liga para ver los datos del usuario -->
+                            <td>
+                                <form action="{{ route('users.detalles_view', [$orden->user()->get()->first()->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link">
+                                    {{ $orden->user()->get()->first()->name }}
+                                    </button>
+                                </form>
+                            </td>
                             <td>{{ $orden->monto }}</td>
                             <td>
                                 @if($orden->estaHecha == TRUE)
@@ -28,9 +36,12 @@
                                 @endif
                             </td>
                             <td style="display: flex;">
-                                <a class="btn btn-info" href="{{ route('ordens.detalles_view', [$orden->id]) }}" style="margin-right: 5px;">
-                                    Detalles
-                                </a>
+                                <form action="{{ route('ordens.detalles_view', [$orden->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-info">
+                                        Detalles
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

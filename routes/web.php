@@ -36,5 +36,9 @@ Route::get('/pide_orden', 'OrdensController@store')->name('ordens.store');
 
 //rutas para las ordenes
 Route::get('/ordenes', 'OrdensController@index')->name('ordens.index');
-Route::get('/ordenes/detalles/{id}', 'OrdensController@detallesView')->name('ordens.detalles_view');
+Route::post('/ordenes/detalles/{id}', 'OrdensController@detallesView')->name('ordens.detalles_view');
 Route::post('/ordenes/{id}', 'OrdensController@detalles')->name('ordens.detalles');
+Route::post('/usuarios/detalles/{id}', 'UsersController@detallesView')->name('users.detalles_view');
+
+//ruta paa las recetas
+Route::get('/recetas', 'RecetasController@indexAdmin')->name('recetas.index');

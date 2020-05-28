@@ -23,4 +23,13 @@ class RecetasController extends Controller
         $recetas = Receta::orderBy('categoria', 'asc')->get();
         return view('menu.index', ['recetas' => $recetas, 'flag' =>false, 'tempIngrediente' => null ]);
     }
+
+    public function indexAdmin(Request $request){
+        $request->user()->authorizeRoles('admin');
+        $recetas = Receta::orderBy('categoria', 'asc')->get();
+        return view('menu.admin', [
+            'recetas' => $recetas,
+            'ingredientes' => Ingrediente::get(),
+        ]);
+    }
 }

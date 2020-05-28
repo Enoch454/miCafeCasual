@@ -20,7 +20,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -33,12 +33,16 @@
                 @else
                     @if (Auth::user()->hasRole('admin'))
                     <br>
-                    <a class="navbar-light " href="{{ url('/ordenes') }}" style="margin-right: 10px;">
+                    <a class="navbar-light " href="{{ url('/ordenes') }}" style="margin-left: 20px;">
                         Ordenes
                     </a>
                     <br>
-                    <a class="navbar-light" href="{{ url('/ingredientes') }}" style="margin-right: 10px;">
+                    <a class="navbar-light" href="{{ url('/ingredientes') }}" style="margin-left: 20px;">
                         Despensa e Ingredientes
+                    </a>
+                    <br>
+                    <a class="navbar-light" href="{{ url('/recetas') }}" style="margin-left: 20px;">
+                        Recetas
                     </a>
                     @endif
                 @endif    

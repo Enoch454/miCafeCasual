@@ -36,11 +36,24 @@ class IngredienteController extends Controller
         $this->validate($request, [
             'cantidad' => 'numeric|min:0'
         ]);
+
+        if($request->unidad == 'kg'){
+            $unidadAlter = 0.015;
+            $nombreUnidadAlter = 'cuchadaras';
+        }elseif($request->unidad == 'lts'){
+            $unidadAlter = 0.25;
+            $nombreUnidadAlter = 'tazas';
+        }else{
+            $unidadAlter = 1;
+            $nombreUnidadAlter = $request->unidad;
+        }
         
         Ingrediente::create([
             'nombre' => $request->nombre,
             'cantidad' => $request->cantidad,
             'unidad' => $request->unidad,
+            'unidadAlter' => $unidadAlter,
+            'nombreUnidadAlter' => $nombreUnidadAlter,
         ]);
         
         return redirect('/ingredientes');

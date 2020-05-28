@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <section class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5">
             <form method="GET" action="{{ route('ordens.store') }}">
                 <table class="table">
                     <thead class="thead-dark">
@@ -35,6 +35,17 @@
                     </div>
                 </div>
             </form>    
+        </div>
+        <div class="col-md-1">
+            <br>
+        </div>
+        <div >
+            <ul class="list-group">
+                <li class="list-group-item active">Hable con nuestro asistente</li>
+                <li class="list-group-item">
+                    <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/ade2aeb2-fea5-46b3-a8c4-3a8a4f27db5f"></iframe>
+                </li>
+            </ul>
         </div>
     </section>
 </div>

@@ -16,9 +16,11 @@ class CreateIngredientesTable extends Migration
         Schema::create('ingredientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->float('cantidad');
+            $table->float('cantidad',9,3);
             $table->string('unidad');
-
+            $table->float('unidadAlter');
+            $table->string('nombreUnidadAlter');
+            
             $table->timestamps();
         });
     }

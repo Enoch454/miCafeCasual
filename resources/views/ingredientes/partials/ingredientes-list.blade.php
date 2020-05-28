@@ -7,6 +7,7 @@
                     <th scope="col">Ingrediente</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col">Unidad</th>
+                    <th scope="col">Es decir ...</th>
                     <th scope="col">Acciones</th>
                 </tr>
                 </thead>
@@ -16,6 +17,7 @@
                         <td>{{ $ingrediente->nombre }}</td>
                         <td>{{ $ingrediente->cantidad }}</td>
                         <td>{{ $ingrediente->unidad }}</td>
+                        <td>{{ $ingrediente->cantidadAlter() }} {{ $ingrediente->nombreUnidadAlter }}</td>
                         <!--aqui van mis botones-->
                         <td style="display: flex;">
                             <a class="btn btn-info" href="{{ route('ingredientes.edit_view', [$ingrediente->id]) }}" style="margin-right: 5px;">
