@@ -17,11 +17,7 @@ class CreateIngredienteRecetasTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('ingrediente_id')->unsigned()->nullable();
             $table->bigInteger('receta_id')->unsigned()->nullable();
-<<<<<<< HEAD
-            $table->float('cantidad',9,3);
-=======
             $table->float('cantidad',8,3);
->>>>>>> 16ce0ce29c8b7ba122610e68f4f7b823ecf19186
 
             $table->timestamps();
 
